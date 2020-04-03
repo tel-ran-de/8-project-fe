@@ -1,0 +1,35 @@
+<h3>Create Customer</h3>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4" >
+    <div [hidden]="submitted" style="width: 400px;">
+      <form [formGroup]="customersaveform" #savecustomer (ngSubmit)="saveCustomer(saveCustomer)">
+        <div class="form-group">
+          <label>Customer Name</label>
+          <input type="text" class="form-control"  formControlName="customer_name" data-toggle="tooltip"
+                 data-placement="right" title="Enter Customer Name" >
+          <div class="alert alert-danger" *ngIf = "(CustomerName.touched) && (CustomerName.invalid)"
+               style="margin-top: 5px;">
+            <span *ngIf="CustomerName.errors.required">Customer Name is Required</span>
+            <span *ngIf = "CustomerName.errors.minlength">
+                        MinLength Error
+                    </span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div [hidden]="!submitted">
+      <h4>Customer Added SuccessFully!</h4>
+      <button (click)="addCustomerForm()" class='btn btn-primary'>Add new customer</button>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
