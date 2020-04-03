@@ -1,0 +1,12 @@
+<form [formGroup]="myReactiveForm" (submit)="onSubmit()">
+  <h2>Customer Registration Form</h2>
+
+   <div class="form-group">
+    <input type="text" pInputText placeholder="Customer's name" formControlName="customerName" class="form-control">
+     <app-validation-errors [control]="myReactiveForm.get('customerName')"></app-validation-errors>
+  </div>
+
+  <button type="submit" class="btn btn-info">Register</button>
+</form>
+
+
