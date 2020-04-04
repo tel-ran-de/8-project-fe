@@ -1,0 +1,12 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <h3 class="first">Create new customer</h3>
+    <label class="required-field">Customer ID</label>
+    <input type="text" class="form-control" formControlName="customerId">
+    <label class="required-field">Customer name</label>
+    <input type="text" class="form-control" formControlName="customerName">
+    <div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
