@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {PrintService} from "../../service/print.service";
 
 @Component({
   selector: 'app-add-shipment',
@@ -11,8 +10,7 @@ export class AddShipmentComponent implements OnInit {
   myReactiveForm: FormGroup;
 
 
-  constructor(private fb: FormBuilder,
-              private printService: PrintService) {
+  constructor(private fb: FormBuilder) {
   }
 
   ngOnInit(): void {

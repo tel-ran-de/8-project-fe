@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {CustomerService} from "../../service/customer-service/customer.service";
 
 @Component({
   selector: 'app-customer-creation',
@@ -10,7 +11,7 @@ export class CustomerCreationComponent implements OnInit {
 
   myForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private customerService: CustomerService) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -19,6 +20,9 @@ export class CustomerCreationComponent implements OnInit {
   onSubmit() {
     const controls = this.myForm.controls;
     console.log(this.myForm.value);
+    this.customerService.createCustomer(this.myForm.value).subscribe((customer) => {
+      console.log(customer);
+    })
   }
 
   private initForm() {
