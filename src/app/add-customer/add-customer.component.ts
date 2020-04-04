@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {CustomerService} from "../customer.service";
-import {Customer} from "../app";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
+import {Customer} from "../customer";
 
 @Component({
   selector: 'app-add-customer',
@@ -10,7 +11,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class AddCustomerComponent implements OnInit {
 
-  constructor(private customerService: CustomerService) {}
+  constructor(private customerService: CustomerService, private http: HttpClient) {}
   customer: Customer = new Customer();
   submitted = false;
 
@@ -42,5 +43,13 @@ export class AddCustomerComponent implements OnInit {
   addCustomerForm(){
     this.submitted = false;
     this.customersaveform.reset();
+  }
+
+  onSubmit(){
+    const formData: any = new FormData();
+    formData.append('customer_name', this.CustomerName.value);
+    this.http.post('http://localhost:4200/add-customer', formData).subscribe(
+      (response) => console.log(this.customersaveform.value),
+        error => console.log(error))
   }
 }
