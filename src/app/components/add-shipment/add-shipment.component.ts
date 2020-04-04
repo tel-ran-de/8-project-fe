@@ -38,6 +38,6 @@ export class AddShipmentComponent implements OnInit {
       Object.keys(controls).forEach(controlName => controls[controlName].markAsTouched());
       return;
     }
-    console.log(this.myReactiveForm);
+    console.log(this.myReactiveForm.value);
   }
 }
