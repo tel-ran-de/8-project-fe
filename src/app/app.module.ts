@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { AddShipmentComponent } from './components/add-shipment/add-shipment.component';
 import { ValidationErrorsComponent } from './components/validation-errors/validation-errors.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { CustomerCreationComponent } from './components/customer-creation/customer-creation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddShipmentComponent,
-    ValidationErrorsComponent
+    ValidationErrorsComponent,
+    CustomerCreationComponent,
   ],
   imports: [
     BrowserModule,
