@@ -12,7 +12,7 @@ export class CustomerService {
   constructor(private http: HttpClient) { }
 
   public getCustomerList() {
-    return this.http.get(this.baseUrl);
+    return this.http.get(`${this.baseUrl}/customers`);
   }
   createCustomer(customer: Customer): Observable<Customer> {
     return this.http.post<Customer>(`${this.baseUrl}/customers`, customer);
