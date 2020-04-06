@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddShipmentComponent } from './components/add-shipment/add-shipment.component';
 import { ValidationErrorsComponent } from './components/validation-errors/validation-errors.component';
-import { ReactiveFormsModule} from "@angular/forms";
+import { ReactiveFormsModule} from '@angular/forms';
 import { CustomerCreationComponent } from './components/customer-creation/customer-creation.component';
-import { HttpClientModule} from "@angular/common/http";
+import { HttpClientModule} from '@angular/common/http';
+import { ListCustomersComponent } from './components/list-customers/list-customers.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HttpClientModule} from "@angular/common/http";
     AddShipmentComponent,
     ValidationErrorsComponent,
     CustomerCreationComponent,
+    ListCustomersComponent,
   ],
   imports: [
     BrowserModule,

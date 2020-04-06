@@ -1,0 +1,39 @@
+{
+  "customers": [
+    {
+      "id": 10,
+      "name": "Tamara Moskvina",
+      "shipments": [
+        {
+          "id": 0,
+          "name": "Packet"
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "name": "Paul Marks",
+      "shipments": [
+        {
+          "id": 0,
+          "name": "Amazon"
+        }
+      ]
+    },
+    {
+      "customerId": "2",
+      "customerName": "anna",
+      "id": 101
+    },
+    {
+      "customerId": "2",
+      "customerName": "anna",
+      "id": 102
+    },
+    {
+      "customerId": "2",
+      "customerName": "anna",
+      "id": 103
+    }
+  ]
+}
