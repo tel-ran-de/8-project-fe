@@ -1,0 +1,8 @@
+<button type="button" class="btn btn-info" (click)="getCustomerList()">Get Customer List</button>
+
+<h2 *ngIf="customers">List of Customers</h2>
+<ul class="customers">
+  <li *ngFor="let customer of customers">
+    <span>{{customer.id}}</span> {{customer.name}}
+  </li>
+</ul>
