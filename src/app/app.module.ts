@@ -6,9 +6,9 @@ import { AppComponent } from './app.component';
 import { AddShipmentComponent } from './components/shipment-layout/add-shipment/add-shipment.component';
 import { ValidationErrorsComponent } from './components/validation-errors/validation-errors.component';
 import { ReactiveFormsModule} from "@angular/forms";
-import { CustomerCreationComponent } from './components/customer-layout/customer-creation/customer-creation.component';
+import { CustomerEditComponent } from './components/customer-layout/customer-edit/customer-edit.component';
 import { HttpClientModule} from "@angular/common/http";
-import { ShowCustomerListComponent } from './components/customer-layout/show-customer-list/show-customer-list.component';
+import { CustomerListComponent } from './components/customer-layout/customer-list/customer-list.component';
 import { CustomerComponent } from './components/customer-layout/customer/customer.component';
 import { ShipmentComponent } from './components/shipment-layout/shipment/shipment.component';
 
@@ -19,8 +19,8 @@ import { ShipmentComponent } from './components/shipment-layout/shipment/shipmen
     AppComponent,
     AddShipmentComponent,
     ValidationErrorsComponent,
-    CustomerCreationComponent,
-    ShowCustomerListComponent,
+    CustomerEditComponent,
+    CustomerListComponent,
     CustomerComponent,
     ShipmentComponent,
 
