@@ -8,6 +8,9 @@ import { ValidationErrorsComponent } from './components/validation-errors/valida
 import { ReactiveFormsModule} from "@angular/forms";
 import { CustomerCreationComponent } from './components/customer-creation/customer-creation.component';
 import { HttpClientModule} from "@angular/common/http";
+import { ShowCustomerListComponent } from './components/show-customer-list/show-customer-list.component';
+
+
 
 @NgModule({
   declarations: [
@@ -15,6 +18,9 @@ import { HttpClientModule} from "@angular/common/http";
     AddShipmentComponent,
     ValidationErrorsComponent,
     CustomerCreationComponent,
+    ShowCustomerListComponent,
+
+
   ],
   imports: [
     BrowserModule,
