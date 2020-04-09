@@ -24,9 +24,15 @@ export class CustomerComponent implements OnInit {
   }
 
   onCustomerChanged(customer: Customer) {
-    this.customerService.createCustomer(customer).subscribe(() => {
-      this.getCustomerList();
-    });
+    if (customer.id) {
+      this.customerService.updateCustomer(customer).subscribe(() => {
+        this.getCustomerList();
+      });
+    } else {
+      this.customerService.createCustomer(customer).subscribe(() => {
+        this.getCustomerList();
+      });
+    }
   }
 
   onCustomerUpdated(customer: Customer) {

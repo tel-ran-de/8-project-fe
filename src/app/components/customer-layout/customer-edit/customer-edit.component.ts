@@ -30,7 +30,7 @@ export class CustomerEditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.customerChanged.emit(this.customerForm.value);
+    this.customerChanged.emit(this.customerForm.getRawValue());
     this.customerForm.reset();
   }
 

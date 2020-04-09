@@ -25,8 +25,8 @@ export class CustomerService {
 
   }
 
-  updateCustomer(id: number, name: string) {
-
+  updateCustomer(customer: Customer) {
+    return this.http.put<Customer>(`${this.baseUrl}/customers/${customer.id}`, customer);
   }
 
   getCustomerShipments(id:number): Observable<Shipment[]> {
@@ -34,8 +34,6 @@ export class CustomerService {
   }
 
   createShipment(customerId:number,shipment:Shipment): Observable<Shipment> {
-
     return this.http.post<Shipment>(`${this.baseUrl}/customers/${customerId}/shipments`,shipment);
-
   }
 }
