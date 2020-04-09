@@ -12,8 +12,13 @@ export class CustomerEditComponent implements OnInit {
 
   customerForm: FormGroup;
 
+  private _customer: Customer;
+
   @Input()
-  customer: Customer;
+  set customer(customer: Customer) {
+    this._customer = customer;
+    this.initForm();
+  }
 
   @Output()
   customerChanged: EventEmitter<Customer> = new EventEmitter<Customer>();
@@ -31,8 +36,8 @@ export class CustomerEditComponent implements OnInit {
 
   private initForm() {
     this.customerForm = this.fb.group({
-      id: [this.customer ? this.customer.id : ''],
-      name: [this.customer ? this.customer.name : '', Validators.required]
+      id: [this._customer ? this._customer.id : ''],
+      name: [this._customer ? this._customer.name : '', Validators.required]
     });
     this.customerForm.get('id').disable();
   }
