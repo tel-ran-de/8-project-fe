@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from "rxjs";
+import {CustomerService} from "../../../service/customer-service/customer.service";
+import {Shipment} from "../../../model/shipment/shipment";
 
 @Component({
   selector: 'app-shipment',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShipmentComponent implements OnInit {
 
-  constructor() { }
+  shipments: Observable<Shipment[]>;
+  shipment: Observable<Shipment>;
+
+
+  constructor(private customerService: CustomerService) {
+  }
 
   ngOnInit(): void {
   }
 
+  onCustomerIdChanged(id: number) {
+    this.shipments = this.customerService.getCustomerShipments(id);
+  }
+
+  onShipmentAdded(shipment: Shipment) {
+    this.customerService.createShipment(shipment.customerId, shipment).subscribe((shipment) => {
+      this.shipment;
+
+    });
+  }
 }

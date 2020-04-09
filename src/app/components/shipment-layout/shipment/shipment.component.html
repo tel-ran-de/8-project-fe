@@ -1,3 +1,5 @@
-<p>shipment works!</p>
 
-<app-add-shipment></app-add-shipment>
+<app-add-shipment  (shipmentAdded)="onShipmentAdded($event)"></app-add-shipment>
+<app-show-shipment-list (customerIdChanged)="onCustomerIdChanged($event)"></app-show-shipment-list>
+<app-shipment-list [shipments]="shipments | async"></app-shipment-list>
+
