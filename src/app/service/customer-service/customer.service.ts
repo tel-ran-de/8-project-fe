@@ -29,9 +29,9 @@ export class CustomerService {
 
   }
 
-  getCustomerShipments(id:number):Observable<any>{
+  getCustomerShipments(id:number):Observable<Shipment[]>{
     console.log(`${this.baseUrl}/customers/${id}/shipments`)
-    return this.http.get(`${this.baseUrl}/customers/${id}/shipments`);
+    return this.http.get<Shipment[]>(`${this.baseUrl}/customers/${id}/shipments`);
   }
 
   createShipment(customerId:number,shipment:Shipment):Observable<Shipment>{
