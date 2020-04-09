@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {Customer} from "../../model/customer/customer";
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Customer} from '../../model/customer/customer';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
-  private baseUrl: string = '/api';
+  private baseUrl = '/api';
 
   constructor(private http: HttpClient) { }
 

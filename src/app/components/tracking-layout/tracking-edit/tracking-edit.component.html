@@ -1,0 +1,32 @@
+<form [formGroup]="trackingForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+
+    <h3 class="first">Create new tracking</h3>
+    <label class="required-field">Tracking ID</label>
+    <input type="text" class="form-control" formControlName="id">
+
+    <label class="required-field">Shipment ID</label>
+    <select class="form-control" formControlName="shipmentId">
+
+      <option *ngFor="let shipment of shipments; let i = index" [value]="shipment[i].id">
+        {{shipment[i].description}}
+      </option>
+    </select>
+    <label class="required-field">Tracking status</label>
+<!--     <input type="text" class="form-control" formControlName="status">-->
+
+     <select class="form-control" formControlName="status">
+      <option>initiated</option>
+      <option>in progress</option>
+      <option>delivered</option>
+      <option>cancelled</option>
+      <option>returned</option>
+    </select>
+
+    <div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+  </div>
+</form>

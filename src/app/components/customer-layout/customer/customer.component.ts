@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CustomerService} from "../../../service/customer-service/customer.service";
-import {Customer} from "../../../model/customer/customer";
-import {Observable} from "rxjs";
+import {CustomerService} from '../../../service/customer-service/customer.service';
+import {Customer} from '../../../model/customer/customer';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-customer',
@@ -24,7 +24,7 @@ export class CustomerComponent implements OnInit {
   }
 
   onCustomerChanged(customer: Customer) {
-    this.customerService.createCustomer(customer).subscribe((customer) => {
+    this.customerService.createCustomer(customer).subscribe((newCustomer) => {
       this.getCustomerList();
     });
   }

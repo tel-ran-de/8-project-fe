@@ -1,0 +1,4 @@
+
+<app-tracking-edit [shipments]="" ]="shipment" [tracking]="currentTracking" (trackingChanged)="onTrackingChanged($event)"></app-tracking-edit>
+<app-tracking-list [trackings]="tracking | async" (trackingChanged)="onShipmentChanged($event)"></app-tracking-list>
+
