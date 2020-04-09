@@ -1,4 +1,5 @@
 <p>customer works!</p>
 
 <app-customer-edit [customer]="currentCustomer" (customerChanged)="onCustomerChanged($event)"></app-customer-edit>
-<app-customer-list [customers]="customers | async"></app-customer-list>
+<app-customer-list [customers]="customers | async" (customerUpdated)="onCustomerUpdated($event)"></app-customer-list>
+
