@@ -1,5 +1,6 @@
 
 <app-add-shipment  (shipmentAdded)="onShipmentAdded($event)"></app-add-shipment>
-<app-show-shipment-list (customerIdChanged)="onCustomerIdChanged($event)"></app-show-shipment-list>
-<app-shipment-list [shipments]="shipments | async"></app-shipment-list>
+<app-shipment-selector-component (customerIdChanged)="onCustomerIdChanged($event)"></app-shipment-selector-component>
+<div *ngIf="customerError">{{customerError}}</div>
+<app-shipment-list [shipments]="shipments"></app-shipment-list>
 

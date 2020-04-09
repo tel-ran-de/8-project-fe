@@ -3,11 +3,11 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 
 @Component({
-  selector: 'app-show-shipment-list',
-  templateUrl: './show-shipment-list.component.html',
-  styleUrls: ['./show-shipment-list.component.scss']
+  selector: 'app-shipment-selector-component',
+  templateUrl: './shipment-selector.component.html',
+  styleUrls: ['./shipment-selector.component.scss']
 })
-export class ShowShipmentListComponent implements OnInit {
+export class ShipmentSelectorComponent implements OnInit {
 
   shipmentForm: FormGroup;
 

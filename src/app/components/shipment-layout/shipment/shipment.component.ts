@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {CustomerService} from "../../../service/customer-service/customer.service";
 import {Shipment} from "../../../model/shipment/shipment";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-shipment',
@@ -10,8 +11,9 @@ import {Shipment} from "../../../model/shipment/shipment";
 })
 export class ShipmentComponent implements OnInit {
 
-  shipments: Observable<Shipment[]>;
+  shipments: Shipment[];
   shipment: Observable<Shipment>;
+  customerError: string;
 
 
   constructor(private customerService: CustomerService) {
@@ -21,7 +23,17 @@ export class ShipmentComponent implements OnInit {
   }
 
   onCustomerIdChanged(id: number) {
-    this.shipments = this.customerService.getCustomerShipments(id);
+    this.customerService.getCustomerShipments(id).subscribe(
+      shipments => {
+        this.shipments = shipments;
+        this.customerError = '';
+      },
+      (error: HttpErrorResponse) => {
+            if (error.status == 404) {
+                this.customerError = `Customer with id ${error.error.customerId} not found`
+            }
+          }
+    );
   }
 
   onShipmentAdded(shipment: Shipment) {

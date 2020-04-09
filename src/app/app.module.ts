@@ -12,7 +12,7 @@ import { CustomerListComponent } from './components/customer-layout/customer-lis
 import { CustomerComponent } from './components/customer-layout/customer/customer.component';
 import { ShipmentComponent } from './components/shipment-layout/shipment/shipment.component';
 import { ShipmentListComponent } from './components/shipment-layout/shipment-list/shipment-list.component';
-import { ShowShipmentListComponent } from './components/shipment-layout/show-shipment-list/show-shipment-list.component';
+import { ShipmentSelectorComponent } from './components/shipment-layout/show-shipment-list/shipment-selector.component';
 
 
 
@@ -27,7 +27,7 @@ import { ShowShipmentListComponent } from './components/shipment-layout/show-shi
     CustomerComponent,
     ShipmentComponent,
     ShipmentListComponent,
-    ShowShipmentListComponent,
+    ShipmentSelectorComponent,
 
 
 
