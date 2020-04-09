@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Customer} from "../../../model/customer/customer";
+import {Shipment} from "../../../model/shipment/shipment";
 
 @Component({
   selector: 'app-add-shipment',
@@ -9,12 +11,13 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/form
 export class AddShipmentComponent implements OnInit {
   myReactiveForm: FormGroup;
 
+  @Output()
+  shipmentAdded: EventEmitter<Shipment> = new EventEmitter<Shipment>();
 
   constructor(private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
-
     this.initForm();
   }
 
@@ -36,6 +39,7 @@ export class AddShipmentComponent implements OnInit {
       Object.keys(controls).forEach(controlName => controls[controlName].markAsTouched());
       return;
     }
-    console.log(this.myReactiveForm.value);
+    this.shipmentAdded.emit(this.myReactiveForm.value);
+    this.myReactiveForm.reset();
   }
 }

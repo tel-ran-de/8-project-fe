@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Customer} from "../../model/customer/customer";
 import {Shipment} from "../../model/shipment/shipment";
+import {error} from "@angular/compiler/src/util";
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,11 @@ export class CustomerService {
   getCustomerShipments(id:number):Observable<any>{
     console.log(`${this.baseUrl}/customers/${id}/shipments`)
     return this.http.get(`${this.baseUrl}/customers/${id}/shipments`);
+  }
+
+  createShipment(customerId:number,shipment:Shipment):Observable<Shipment>{
+    console.log(`${this.baseUrl}/customers/${customerId}/shipments`)
+    return this.http.post<Shipment>(`${this.baseUrl}/customers/${customerId}/shipments`,shipment);
 
   }
 }

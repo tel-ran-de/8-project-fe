@@ -11,17 +11,23 @@ import {Shipment} from "../../../model/shipment/shipment";
 export class ShipmentComponent implements OnInit {
 
   shipments: Observable<Shipment[]>;
-  currentId: number;
+  shipment: Observable<Shipment>;
+
 
   constructor(private customerService: CustomerService) {
   }
 
   ngOnInit(): void {
-
   }
 
   onCustomerIdChanged(id: number) {
     this.shipments = this.customerService.getCustomerShipments(id);
+  }
 
+  onShipmentAdded(shipment: Shipment) {
+    this.customerService.createShipment(shipment.customerId, shipment).subscribe((shipment) => {
+      this.shipment;
+
+    });
   }
 }
