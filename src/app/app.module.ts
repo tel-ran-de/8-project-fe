@@ -11,6 +11,9 @@ import { HttpClientModule} from "@angular/common/http";
 import { CustomerListComponent } from './components/customer-layout/customer-list/customer-list.component';
 import { CustomerComponent } from './components/customer-layout/customer/customer.component';
 import { ShipmentComponent } from './components/shipment-layout/shipment/shipment.component';
+import { ShipmentListComponent } from './components/shipment-layout/shipment-list/shipment-list.component';
+import { ShowShipmentListComponent } from './components/shipment-layout/show-shipment-list/show-shipment-list.component';
+
 
 
 
@@ -23,6 +26,9 @@ import { ShipmentComponent } from './components/shipment-layout/shipment/shipmen
     CustomerListComponent,
     CustomerComponent,
     ShipmentComponent,
+    ShipmentListComponent,
+    ShowShipmentListComponent,
+
 
 
   ],
