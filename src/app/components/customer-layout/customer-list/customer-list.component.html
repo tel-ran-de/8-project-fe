@@ -2,5 +2,6 @@
 <ul class="customers">
   <li *ngFor="let customer of customers" (click)="onClick(customer)">
     <span>{{customer.id}}</span> {{customer.name}}
+    <a [routerLink]="[customer.id,'shipments' ]">Go to Shipment List</a>
   </li>
 </ul>
