@@ -1,0 +1,15 @@
+<h2>List of Tracking</h2>
+<form [formGroup]="shipmentIdForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+
+    <label class="required-field">Shipment ID</label>
+    <input type="text" class="form-control" formControlName="id">
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+<ul class="trackings">
+  <li *ngFor="let tracking of trackings">
+    <span>{{tracking.id}}</span> {{tracking.status}}
+  </li>
+</ul>
