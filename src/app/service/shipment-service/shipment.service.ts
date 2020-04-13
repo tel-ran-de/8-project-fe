@@ -13,4 +13,8 @@ export class ShipmentService {
   getShipmentList(): Observable<any> {
     return this.http.get(`${this.baseUrl}/shipment/`);
   }
+
+  getTrackingByShipmentId(shipmentId: number): Observable<any> {
+    return this.http.get( `${this.baseUrl}/shipment/${shipmentId}` );
+  }
 }
