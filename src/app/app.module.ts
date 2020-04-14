@@ -13,15 +13,12 @@ import { CustomerComponent } from './components/customer-layout/customer/custome
 import { ShipmentComponent } from './components/shipment-layout/shipment/shipment.component';
 import { ShipmentListComponent } from './components/shipment-layout/shipment-list/shipment-list.component';
 import { ShipmentSelectorComponent } from './components/shipment-layout/show-shipment-list/shipment-selector.component';
+import { CustomerShipmentComponent } from './components/customer-layout/customer-shipment/customer-shipment.component';
 import { TrackingComponent } from './components/tracking-layout/tracking/tracking.component';
 import { TrackingListComponent } from './components/tracking-layout/tracking-list/tracking-list.component';
 import { TrackingEditComponent } from './components/tracking-layout/tracking-edit/tracking-edit.component';
 import { ShipmentByTrackingComponent } from './components/shipment-layout/shipment-by-tracking/shipment-by-tracking.component';
 import { ShipmentTrackingListComponent } from './components/shipment-layout/shipment-tracking-list/shipment-tracking-list.component';
-
-
-
-
 
 
 @NgModule({
@@ -35,14 +32,12 @@ import { ShipmentTrackingListComponent } from './components/shipment-layout/ship
     ShipmentComponent,
     ShipmentListComponent,
     ShipmentSelectorComponent,
+    CustomerShipmentComponent,
     TrackingComponent,
     TrackingListComponent,
     TrackingEditComponent,
     ShipmentByTrackingComponent,
-    ShipmentTrackingListComponent,
-
-
-
+    ShipmentTrackingListComponent
   ],
   imports: [
     BrowserModule,
