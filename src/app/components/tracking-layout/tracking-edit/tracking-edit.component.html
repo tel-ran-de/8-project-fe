@@ -7,12 +7,7 @@
     <input type="text" class="form-control" formControlName="id">
 
     <label class="required-field">Shipment ID</label>
-    <select class="form-control" formControlName="shipmentId">
-
-      <option *ngFor="let shipment of shipments; let i = index" [value]="shipment[i].id">
-        {{shipment[i].description}}
-      </option>
-    </select>
+    <input class="form-control" formControlName="shipmentId">
     <label class="required-field">Tracking status</label>
 
     <select class="form-control" formControlName="status">

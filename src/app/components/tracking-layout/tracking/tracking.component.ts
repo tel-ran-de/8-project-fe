@@ -14,22 +14,18 @@ import {ShipmentService} from '../../../service/shipment-service/shipment.servic
 export class TrackingComponent implements OnInit {
 
   tracking: Observable<Tracking[]>;
-  shipment: Observable<Shipment[]>;
   currentTracking: Tracking;
 
   constructor(private trackingService: TrackingService, private shipmentService: ShipmentService) { }
 
   ngOnInit(): void {
     this.getTrackingList();
-    this.getShipmentList();
+
   }
   getTrackingList() {
     this.tracking = this.trackingService.getTrackingList();
   }
 
-  getShipmentList() {
-    this.shipment = this.shipmentService.getShipmentList();
-  }
   onTrackingChanged(tracking: Tracking) {
     this.trackingService.createTracking(tracking).subscribe((newTracking) => {
       this.getTrackingList();
