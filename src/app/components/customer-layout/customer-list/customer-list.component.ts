@@ -20,7 +20,7 @@ export class CustomerListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClick(customer: Customer) {
+  editCustomer(customer: Customer) {
     console.log(customer);
     this.customerUpdated.emit(customer);
   }
