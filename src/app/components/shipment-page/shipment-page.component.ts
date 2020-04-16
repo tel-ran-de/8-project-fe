@@ -20,10 +20,8 @@ export class ShipmentPageComponent implements OnInit {
   customerNameAndDescr: CustomerName;
   trackings: Tracking[];
   status: string;
-  shipmentId: string;
-  tracking:Tracking;
-
-
+  shipmentId: number;
+  // tracking: Tracking;
 
   constructor(private shipmentService: ShipmentService, private route: ActivatedRoute) {
   }
@@ -32,7 +30,7 @@ export class ShipmentPageComponent implements OnInit {
 
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
-          this.shipmentId = params.get('shipmentId')
+          this.shipmentId = +params.get('shipmentId');
           return this.shipmentService.getCustomernameAndShipmentDescription(Number(this.shipmentId))
         }
       )
@@ -51,15 +49,14 @@ export class ShipmentPageComponent implements OnInit {
   }
 
   onSelectTrackingEvent() {
-   this.tracking.status=this.status;
-   this.tracking.shipmentId=Number(this.shipmentId);
-   this.addStatus();
+   this.addStatus({status: this.status, shipmentId: this.shipmentId});
    this.getTrackingList();
   }
 
-  addStatus() {
-    return this.shipmentService.createTrackingByShipmentId(this.tracking, Number(this.shipmentId))
-    .subscribe((tracking) => tracking);
+  addStatus(tracking: Tracking) {
+    return this.shipmentService.createTrackingByShipmentId(tracking).subscribe(
+      (tracking) => tracking
+    );
   }
 }
 

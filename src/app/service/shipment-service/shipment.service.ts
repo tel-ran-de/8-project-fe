@@ -21,10 +21,10 @@ export class ShipmentService {
   getTrackingByShipmentId(shipmentId: number): Observable<any> {
     return this.http.get( `${this.baseUrl}/shipment/${shipmentId}` );
   }
-  createTrackingByShipmentId(tracking:Tracking, shipmentId:number):Observable<Tracking>{
+  createTrackingByShipmentId(tracking: Tracking):Observable<Tracking>{
   //  const myHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 
-  return this.http.post<Tracking>(`${this.baseUrl}/shipments/${shipmentId}/trackings`,tracking /*,{headers:myHeaders}*/);}
+  return this.http.post<Tracking>(`${this.baseUrl}/shipments/${tracking.shipmentId}/trackings`,tracking /*,{headers:myHeaders}*/);}
 
 
 

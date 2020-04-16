@@ -1,29 +1,38 @@
-<h1>{{customerNameAndDescr.name}}</h1>
-<h2>Shipment description: {{customerNameAndDescr.description}}</h2>
-<h3>(Shipment ID: {{shipmentId}})</h3>
-<h2 *ngIf="trackings">List of Trackings</h2>
-<ol class="trackings">
-  <li *ngFor="let tracking of trackings">
-   <span>{{tracking.status}}  </span> {{tracking.eventDate}}
-  </li>
-</ol>
+<div class="container">
 
-<h2>Add tracking event</h2>
-<select name="status" [(ngModel)]="status">
-  <option>initiated</option>
-  <option>in progress</option>
-  <option>delivered</option>
-  <option>cancelled</option>
-  <option>returned</option>
-</select>
-<div>
-  <button type="submit" class="btn btn-primary" (click)="onSelectTrackingEvent()">Submit</button>
+<div class="card">
+  <div class="card-body" >
+    <h5 class="card-title row">
+      <div class="col-3">Customer:</div>
+      <div class="col-9">{{customerNameAndDescr?.name}}</div>
+    </h5>
+    <div class="card-text row">
+      <div class="col-3">Shipment description:</div>
+      <div class="col-9">{{customerNameAndDescr?.description}}</div>
+    </div>
+    <div class="card-text row">
+      <div class="col-3">Shipment ID:</div>
+      <div class="col-9">{{shipmentId}}</div>
+    </div>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let tracking of trackings">
+      <span>{{tracking.status}}  </span> {{tracking.eventDate | date : 'short'}}
+    </li>
+  </ul>
+  <div class="card-body">
+    <h2>Add tracking event</h2>
+    <select name="status" [(ngModel)]="status">
+      <option>initiated</option>
+      <option>in progress</option>
+      <option>delivered</option>
+      <option>cancelled</option>
+      <option>returned</option>
+    </select>
+    <div>
+      <button type="submit" class="btn btn-primary" (click)="onSelectTrackingEvent()">Submit</button>
+    </div>
+  </div>
 </div>
 
-
-
-
-
-
-
-
+</div>
