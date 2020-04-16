@@ -6,7 +6,7 @@
       <span>{{shipment.id}}</span> {{shipment.description}}
         </div>
         <div class="col-md-2">
-          <button type="button" class="btn btn-primary btn-sm" [routerLink]="[shipment.id]">Track shipment</button>
+          <a class="btn btn-primary btn-sm" [routerLink]="['/app/shipment', shipment.id]">Track shipment</a>
         </div>
       </div>
     </li>

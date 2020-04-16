@@ -9,8 +9,6 @@ import { ValidationErrorsComponent } from './components/validation-errors/valida
 import { CustomerCreateComponent } from './components/customer-layout/customer-create/customer-create.component';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { CustomerEditComponent } from './components/customer-layout/customer-edit/customer-edit.component';
-import { HttpClientModule} from "@angular/common/http";
 import { CustomerListComponent } from './components/customer-layout/customer-list/customer-list.component';
 import { CustomerComponent } from './components/customer-layout/customer/customer.component';
 import { ShipmentComponent } from './components/shipment-layout/shipment/shipment.component';

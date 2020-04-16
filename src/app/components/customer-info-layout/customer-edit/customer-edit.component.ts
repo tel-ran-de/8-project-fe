@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Customer} from '../../../model/customer/customer';
 
@@ -13,13 +13,14 @@ export class CustomerEditComponent implements OnInit {
   visible = true;
   displayed = false;
 
-  /*private _customer: Customer;
-*/
-  /*@Input()
+  public _customer: Customer;
+
+  @Input()
   set customer(customer: Customer) {
+    console.log(customer);
     this._customer = customer;
     this.initForm();
-  }*/
+  }
 
   @Output()
   customerUpdated: EventEmitter<Customer> = new EventEmitter<Customer>();
@@ -30,22 +31,17 @@ export class CustomerEditComponent implements OnInit {
     this.initForm();
   }
 
-  toggle() {
-    this.visible = false;
-    this.displayed = true;
-  }
-
   onSubmit() {
     this.customerUpdated.emit(this.customerEditForm.value);
     console.log(this.customerEditForm.value);
     this.customerEditForm.reset();
-    this.toggle();
   }
 
   private initForm() {
+    console.log(this._customer);
     this.customerEditForm = this.fb.group({
-      id: [''],
-      name: ['']
+      id: [this._customer? this._customer.id : null],
+      name: [this._customer? this._customer.name : null]
     });
   }
 }
