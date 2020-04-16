@@ -1,0 +1,9 @@
+<div class="container">
+  <button type="button" class="btn btn-primary btn-sm" (click)="toggleCustomerEditForm()">Edit customer</button>
+  <app-customer-edit *ngIf="show" (customerUpdated)="onCustomerUpdated($event)"></app-customer-edit>
+
+  <app-customer-shipments></app-customer-shipments>
+
+  <button type="button" class="btn btn-primary btn-sm" (click)="toggleShipmentAddForm()">Add shipment</button>
+  <app-customer-shipment-create *ngIf="display" (shipmentAdded)="onShipmentAdded($event)"></app-customer-shipment-create>
+</div>

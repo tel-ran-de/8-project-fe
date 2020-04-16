@@ -6,10 +6,7 @@
             <span>{{customer.id}}</span> {{customer.name}}
           </div>
           <div class="col-md-1">
-            <button type="button" class="btn btn-primary btn-sm" (click)="editCustomer(customer)">Edit</button>
-          </div>
-          <div class="col-md-1">
-            <button type="button" class="btn btn-primary btn-sm" [routerLink]="[customer.id,'shipments' ]">Shipments</button>
+            <button type="button" class="btn btn-primary btn-sm" [routerLink]="[customer.id]">Open</button>
           </div>
         </div>
       </li>

@@ -1,15 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap} from '@angular/router';
-import {CustomerService} from "../../../service/customer-service/customer.service";
-import {Shipment} from "../../../model/shipment/shipment";
+import {CustomerService} from '../../../service/customer-service/customer.service';
+import {Shipment} from '../../../model/shipment/shipment';
 import {switchMap} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-customer-shipment',
-  templateUrl: './customer-shipment.component.html',
-  styleUrls: ['./customer-shipment.component.scss']
+  selector: 'app-customer-shipments',
+  templateUrl: './customer-shipments.component.html',
+  styleUrls: ['./customer-shipments.component.scss']
 })
-export class CustomerShipmentComponent implements OnInit {
+
+export class CustomerShipmentsComponent implements OnInit {
   shipments: Shipment[];
   customerId: string;
 
@@ -28,10 +29,9 @@ export class CustomerShipmentComponent implements OnInit {
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
           this.customerId = params.get('customerId');
-          return this.customerService.getCustomerShipments(Number(this.customerId))
+          return this.customerService.getCustomerShipments(Number(this.customerId));
         }
       )
     ).subscribe( (shipments: Shipment[]) => this.shipments = shipments);
-
   }
 }

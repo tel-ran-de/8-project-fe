@@ -1,4 +1,4 @@
 <div class="container">
-  <app-customer-edit [customer]="currentCustomer" (customerChanged)="onCustomerChanged($event)"></app-customer-edit>
-  <app-customer-list [customers]="customers | async" (customerUpdated)="onCustomerUpdated($event)"></app-customer-list>
+  <app-customer-create [customer]="currentCustomer" (customerChanged)="onCustomerChanged($event)"></app-customer-create>
+  <app-customer-list [customers]="customers | async"></app-customer-list>
 </div>

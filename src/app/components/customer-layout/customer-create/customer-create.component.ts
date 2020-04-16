@@ -1,14 +1,13 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {CustomerService} from '../../../service/customer-service/customer.service';
-import {Customer} from "../../../model/customer/customer";
+import {Customer} from '../../../model/customer/customer';
 
 @Component({
-  selector: 'app-customer-edit',
-  templateUrl: './customer-edit.component.html',
-  styleUrls: ['./customer-edit.component.scss']
+  selector: 'app-customer-create',
+  templateUrl: './customer-create.component.html',
+  styleUrls: ['./customer-create.component.scss']
 })
-export class CustomerEditComponent implements OnInit {
+export class CustomerCreateComponent implements OnInit {
 
   customerForm: FormGroup;
 

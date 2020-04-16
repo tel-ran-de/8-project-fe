@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Customer} from '../../../model/customer/customer';
 
 @Component({
@@ -11,17 +11,11 @@ export class CustomerListComponent implements OnInit {
   @Input()
   customers: Customer[];
 
-  @Output()
-  customerUpdated: EventEmitter<Customer> =  new EventEmitter<Customer>();
-
   constructor() {
   }
 
   ngOnInit(): void {
   }
 
-  editCustomer(customer: Customer) {
-    console.log(customer);
-    this.customerUpdated.emit(customer);
-  }
+
 }

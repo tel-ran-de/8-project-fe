@@ -34,8 +34,4 @@ export class CustomerComponent implements OnInit {
       });
     }
   }
-
-  onCustomerUpdated(customer: Customer) {
-    this.currentCustomer = customer;
-  }
 }
