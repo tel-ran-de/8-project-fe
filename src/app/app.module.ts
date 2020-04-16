@@ -5,9 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddShipmentComponent } from './components/shipment-layout/add-shipment/add-shipment.component';
 import { ValidationErrorsComponent } from './components/validation-errors/validation-errors.component';
-import { ReactiveFormsModule} from '@angular/forms';
+
 import { CustomerCreateComponent } from './components/customer-layout/customer-create/customer-create.component';
 import { HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CustomerEditComponent } from './components/customer-layout/customer-edit/customer-edit.component';
+import { HttpClientModule} from "@angular/common/http";
 import { CustomerListComponent } from './components/customer-layout/customer-list/customer-list.component';
 import { CustomerComponent } from './components/customer-layout/customer/customer.component';
 import { ShipmentComponent } from './components/shipment-layout/shipment/shipment.component';
@@ -22,6 +25,7 @@ import { ShipmentTrackingListComponent } from './components/shipment-layout/ship
 import { CustomerInfoComponent } from './components/customer-info-layout/customer-info/customer-info.component';
 import { CustomerShipmentCreateComponent } from './components/customer-info-layout/customer-shipment-create/customer-shipment-create.component';
 import { CustomerEditComponent} from './components/customer-info-layout/customer-edit/customer-edit.component';
+import { ShipmentPageComponent} from './components/shipment-page/shipment-page.component';
 
 @NgModule({
   declarations: [
@@ -42,13 +46,15 @@ import { CustomerEditComponent} from './components/customer-info-layout/customer
     ShipmentTrackingListComponent,
     CustomerInfoComponent,
     CustomerShipmentCreateComponent,
-    CustomerEditComponent
+    CustomerEditComponent,
+    ShipmentPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
