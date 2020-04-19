@@ -3,8 +3,9 @@
   <app-customer-edit *ngIf="showCustomerEditForm" [customer]="this.currentCustomer" (customerUpdated)="onCustomerUpdated($event)"></app-customer-edit>
   <div *ngIf="showCustomerEdited" class="message">Customer was successfully edited</div>
 
-  <app-customer-shipments></app-customer-shipments>
+  <app-customer-shipments [customer]="this.currentCustomer" [shipments]="shipments"></app-customer-shipments>
 
   <button type="button" class="btn btn-primary btn-sm" (click)="toggleShipmentAddForm()">Add shipment</button>
-  <app-customer-shipment-create *ngIf="display" (shipmentAdded)="onShipmentAdded($event)"></app-customer-shipment-create>
+  <app-customer-shipment-create *ngIf="showShipmentAdditionForm" [customer]="this.currentCustomer" (shipmentAdded)="onShipmentAdded($event)"></app-customer-shipment-create>
+  <div *ngIf="showShipmentAdded">Shipment was successfully added</div>
 </div>

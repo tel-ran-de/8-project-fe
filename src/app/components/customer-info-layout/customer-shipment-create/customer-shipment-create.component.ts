@@ -1,6 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Shipment} from '../../../model/shipment/shipment';
+import {Customer} from '../../../model/customer/customer';
 
 @Component({
   selector: 'app-customer-shipment-create',
@@ -9,9 +10,14 @@ import {Shipment} from '../../../model/shipment/shipment';
 })
 export class CustomerShipmentCreateComponent implements OnInit {
   shipmentCreateForm: FormGroup;
+  public _customer: Customer;
 
-  visible = true;
-  displayed = false;
+  @Input()
+  set customer(customer: Customer) {
+    console.log(customer);
+    this._customer = customer;
+    this.initForm();
+  }
 
   @Output()
   shipmentAdded: EventEmitter<Shipment> = new EventEmitter<Shipment>();
@@ -23,9 +29,10 @@ export class CustomerShipmentCreateComponent implements OnInit {
   }
 
   initForm() {
+    console.log(this._customer);
     this.shipmentCreateForm = this.fb.group({
-      description: [''],
-      customerId: ['']
+      customerId: [this._customer ? this._customer.id : null],
+      description: ['']
     });
   }
 
@@ -33,11 +40,5 @@ export class CustomerShipmentCreateComponent implements OnInit {
     this.shipmentAdded.emit(this.shipmentCreateForm.value);
     console.log(this.shipmentCreateForm.value);
     this.shipmentCreateForm.reset();
-    this.toggle();
-  }
-
-  toggle() {
-    this.visible = false;
-    this.displayed = true;
   }
 }

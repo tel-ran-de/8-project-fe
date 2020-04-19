@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Customer} from '../../../model/customer/customer';
 import {CustomerService} from '../../../service/customer-service/customer.service';
 import {Shipment} from '../../../model/shipment/shipment';
 import {Observable} from 'rxjs';
 import {switchMap} from 'rxjs/operators';
 import {ActivatedRoute, ParamMap, Route} from '@angular/router';
+import {Tracking} from '../../../model/tracking/tracking';
+import {ShipmentService} from '../../../service/shipment-service/shipment.service';
 
 @Component({
   selector: 'app-customer-info',
@@ -15,11 +17,13 @@ export class CustomerInfoComponent implements OnInit {
 
   currentCustomer: Customer;
   shipment: Shipment;
-  shipments: Observable<Shipment[]>;
+  shipments: Shipment[];
+  customerId: number;
 
   showCustomerEditForm = false;
-  display = false;
-  showCustomerEdited: boolean = false;
+  showShipmentAdditionForm = false;
+  showCustomerEdited = false;
+  showShipmentAdded = false;
 
   constructor(private customerService: CustomerService,
               private route: ActivatedRoute) { }
@@ -27,11 +31,17 @@ export class CustomerInfoComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
-          const customerId = +params.get('customerId');
-          return this.customerService.getCustomer(customerId);
+          this.customerId = +params.get('customerId');
+          return this.customerService.getCustomer(this.customerId);
         }
       )
-    ).subscribe( customer => this.currentCustomer = customer);
+    ).subscribe(customer => this.currentCustomer = customer);
+  }
+
+  getCustomerShipmentList() {
+    this.customerService.getCustomerShipments(this.customerId).subscribe(
+      (shipments: Shipment[]) => this.shipments = shipments
+    );
   }
 
   onCustomerUpdated(customer: Customer) {
@@ -44,8 +54,11 @@ export class CustomerInfoComponent implements OnInit {
   }
 
   onShipmentAdded(shipment: Shipment) {
-    this.customerService.createShipment(shipment.customerId, shipment).subscribe(
-      (shipment) =>  this.shipment = shipment
+    this.customerService.createShipment(this.customerId, shipment).subscribe(
+      () => {
+        this.getCustomerShipmentList();
+        this.showShipmentAdded = true;
+      }
     );
   }
 
@@ -54,6 +67,6 @@ export class CustomerInfoComponent implements OnInit {
   }
 
   toggleShipmentAddForm() {
-    this.display = !this.display;
+    this.showShipmentAdditionForm = !this.showShipmentAdditionForm;
   }
 }
