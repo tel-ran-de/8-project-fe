@@ -10,8 +10,6 @@ import {Customer} from '../../../model/customer/customer';
 export class CustomerEditComponent implements OnInit {
 
   customerEditForm: FormGroup;
-  visible = true;
-  displayed = false;
 
   public _customer: Customer;
 
@@ -40,8 +38,8 @@ export class CustomerEditComponent implements OnInit {
   private initForm() {
     console.log(this._customer);
     this.customerEditForm = this.fb.group({
-      id: [this._customer? this._customer.id : null],
-      name: [this._customer? this._customer.name : null]
+      id: [this._customer ? this._customer.id : null],
+      name: [this._customer ? this._customer.name : null]
     });
   }
 }
